@@ -5,22 +5,23 @@ output:
   progressive: true
   sllow_skip: true
   lenguaje: es
+  fig_caption: true
 runtime: shiny_prerendered
 ---
+<style>body {text-align: justify}</style>
 
-```{r setup, include=FALSE}
-library(learnr)
-knitr::opts_chunk$set(echo = FALSE)
+```{r echo=FALSE, fig.cap = ""}
+library("learnr")
+library("vembedr")
 ```
 
+![](https://cardbiss.com/wp-content/uploads/2021/10/lenguaje-programacion-r-2055589.jpg){width=100%}
 
+# Importar datos
 
-
-
-## Importación de datos
+## Introducción
 Conociendo que  R es un lenguaje de programación orientado al análisis de datos, lo primero que debe hacerse para empezar un análisis con datos en R es, evidentemente, cargar los datos en R. El trabajo con base de datos, en su mayoría, será inherente al software Microsoft Excel. La digitación de encuestas y/o datos de reporte se realizan, generalmente, en hojas de cálculo; de aquí que un formato primario para almacenar bases de datos sean las planillas de cálculo de Excel. En R se pueden importar bases de datos de múltiples formatos, a saber; Excel, formato txt (texto), SPSS, JSON, XML e inclusive, bajar datos a través de APIs. La presente tutoría se enfocará en importar datos desde Excel.
 
-![](Imágenes/portada.jpg)
 
 Excel en su forma más general, maneja tres formatos para sus hojas de cáculo, estos son: 
 
@@ -29,19 +30,44 @@ Excel en su forma más general, maneja tres formatos para sus hojas de cáculo, 
 - .xls: Documentos de salida de hoja de cálculo por defecto de las versiones desde 1997 y 2003.
 
 - .csv: Datos separados por comas
+### Importar datos desde código
+El lenguaje R por defecto tiene un paquete base, con el cual es posible importar bases de datos (funciones read.csv). Sin embargo, la importación de datos desde la interfaz de R studio utiliza librerías adicionales de R (por velocidad y otras utilidades de compatibilidad). La siguiente tabla resumen las funciones pertinentes para la carga de datos:
 
-El lenguaje R por defecto tiene un paquete base, con el cual es posible importar bases de datos (funciones read.csv). Sin embargo, la importación de datos desde la interfaz de R studio utiliza librerías adicionales de R (por velocidad y otras utilidades de compatibilidad). 
+| Extensión   | Tipo de archivo             | Función              |
+|-------------|-----------------------------|----------------------|
+| .csv        | Valores Separados por Comas | readr::read_csv()    |
+| .tsv, .txt  | Valores Separados por Comas | readr::read_tsv()    |
+| .xls, .xlsx | Libro de excel              | readxl::read_excel() |
 
-Datos tabulares (o de texto) 
+Recuerde que los dobles puntos significan que la función de la derecha proviene del paquete de la izquierda (tomando como referencia la doble puntuación). Dentro de cada función debe ir, entre comillas, la ruta de archivo de sus datos y su extensión.
 
-Hay varios paquetes, pero usaremos el mismo que usa RStudio en sus menús: read_csv()
+- Por ejemplo:
 
-Importar archivos en formato excel
+```{r}
+library("readxl") # Recuerde siempre llamar antes la librería 
 
-También hay varios paquetes, pero usaremos el mismo que usa RStudio en sus menús: readxl (permite leer ficheros .xls y .xlsx.) . L siguiente tabla resume las función pertinentes para la importación de datos. 
+Alumnos=readxl::read_excel("Datos/Alumnos.xlsx")
+
+head(Alumnos) #función que muestra las primeras filas de los datos importados
+```
+
+### Importar datos desde la interfáz
+La carga de datos se facilita mucho desde la interfáz de R studio, puede consultar los siguientes videos para aprender a cargar datos desde la interfáz:
+
+- Para el formato .xlsx, diríjase a: File /Import Dataset/From text (base).
+
+```{r}
+embed_youtube("g8p_Rn8C6oU")
+```
 
 
-### Exercise 
+- Para el formato .xlsx, diríjase a: File/ Import Dataset/ From Excel.
+
+```{r}
+embed_youtube("wB7zmFKRjFk")
+```
+
+## Ejercicios: Carga de datos
 
 *Here's a simple exercise with an empty code chunk provided for entering the answer.*
 
@@ -62,6 +88,8 @@ add <- function() {
   
 }
 ```
+
+
 
 ## Topic 2
 
