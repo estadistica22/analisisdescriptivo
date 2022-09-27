@@ -1,6 +1,10 @@
 ---
-title: "Tutorial"
-output: learnr::tutorial
+title: "Análisis de datos con R"
+output: 
+  learnr::tutorial:
+  progressive: true
+  sllow_skip: true
+  lenguaje: es
 runtime: shiny_prerendered
 ---
 
@@ -10,7 +14,32 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-## Topic 1
+
+
+
+## Importación de datos
+Conociendo que  R es un lenguaje de programación orientado al análisis de datos, lo primero que debe hacerse para empezar un análisis con datos en R es, evidentemente, cargar los datos en R. El trabajo con base de datos, en su mayoría, será inherente al software Microsoft Excel. La digitación de encuestas y/o datos de reporte se realizan, generalmente, en hojas de cálculo; de aquí que un formato primario para almacenar bases de datos sean las planillas de cálculo de Excel. En R se pueden importar bases de datos de múltiples formatos, a saber; Excel, formato txt (texto), SPSS, JSON, XML e inclusive, bajar datos a través de APIs. La presente tutoría se enfocará en importar datos desde Excel.
+
+![](Imágenes/portada.jpg)
+
+Excel en su forma más general, maneja tres formatos para sus hojas de cáculo, estos son: 
+
+- .xlsx: Documentos de salida de hoja de cálculo por defecto de las versiones más recientes de Microsoft Excel (posteriores o iguales a la del 2007).
+
+- .xls: Documentos de salida de hoja de cálculo por defecto de las versiones desde 1997 y 2003.
+
+- .csv: Datos separados por comas
+
+El lenguaje R por defecto tiene un paquete base, con el cual es posible importar bases de datos (funciones read.csv). Sin embargo, la importación de datos desde la interfaz de R studio utiliza librerías adicionales de R (por velocidad y otras utilidades de compatibilidad). 
+
+Datos tabulares (o de texto) 
+
+Hay varios paquetes, pero usaremos el mismo que usa RStudio en sus menús: read_csv()
+
+Importar archivos en formato excel
+
+También hay varios paquetes, pero usaremos el mismo que usa RStudio en sus menús: readxl (permite leer ficheros .xls y .xlsx.) . L siguiente tabla resume las función pertinentes para la importación de datos. 
+
 
 ### Exercise 
 
