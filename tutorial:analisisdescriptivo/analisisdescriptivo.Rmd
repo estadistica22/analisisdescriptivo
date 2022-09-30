@@ -1,11 +1,13 @@
 ---
-title: "Análisis de datos con R"
+title: "Manipulación de datos con R"
+author: Departamento de matemáticas </br> Pontificia Unversidad Javeriana </br> Sede Cali
 output: 
   learnr::tutorial:
-  progressive: true
-  sllow_skip: true
-  lenguaje: es
-  fig_caption: true
+    css: css/learnr_metadocencia.css
+    progressive: false
+    language:
+    es: tutorial_es.json
+description: "Primera parte: Importar datos" 
 runtime: shiny_prerendered
 ---
 <style>body {text-align: justify}</style>
@@ -69,9 +71,7 @@ embed_youtube("wB7zmFKRjFk")
 
 ## Ejercicios: Carga de datos
 
-*Here's a simple exercise with an empty code chunk provided for entering the answer.*
-
-Write the R code required to add two plus two:
+Con base en los videos vistos anteriomente, ¿cuál es la ruta a seguir para importar datos desde la interfáz de R estudio?
 
 ```{r two-plus-two, exercise=TRUE}
 
