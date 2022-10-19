@@ -122,8 +122,9 @@ quiz(
 ```
 
 
-### Ejercicios con código
-Suponga que en su proyecto tiene una base de datos llamada "Empresas" (formato xlsx) y dicha base está en una carpeta llamada "Datos"; escriba el código necesario para importar la base de datos.Recuerde llamar la librería antes de usar la función y, nombrar la base de datos como cargada como "Empresas".
+### Ejercicios con código (1)
+
+**1.** Suponga que en su proyecto tiene una base de datos llamada "Empresas" (formato xlsx) y dicha base está en una carpeta llamada "data"; escriba el código necesario para importar la base de datos. Recuerde llamar la librería antes de usar la función y nombrar la base de datos como cargada como "Empresas". Finalmente, muestre el encabezado de la base importada. 
 
 
 ```{r prregunta_co_1, exercise=TRUE}
@@ -136,20 +137,37 @@ read_excel("Carpeta/archivo.formato")
 ```
 
 ```{r prregunta_co_1-solution, echo=FALSE}
-library("readxl") # Recuerde siempre llamar antes la librería 
-Empresas=read_excel("Datos/Empresas.xlsx")
-Empresas
+library("readxl")
+Empresas=read_excel("data/Empresas.xlsx")
+head(Empresas)
 ```
 
 ```{r prregunta_co_1-check, echo=FALSE}
 grade_this_code()
 ```
 
-### Exercise with Hint
+### Ejercicios con código (2)
 
-*Here's an exercise where the chunk is pre-evaulated via the `exercise.eval` option (so the user can see the default output we'd like them to customize). We also add a "hint" to the correct solution via the chunk immediate below labeled `print-limit-hint`.*
+**2.** Suponga que en su proyecto tiene una base de datos llamada "Alumnos" (formato csv) y dicha base está en una carpeta llamada "data"; escriba el código necesario para importar la base de datos. Recuerde llamar la librería antes de usar la función y nombrar la base de datos como cargada como "Alumnos". Finalmente, muestre el encabezado de la base importada. 
 
-Modify the following code to limit the number of rows printed to 5:
+```{r prregunta_co_2, exercise=TRUE}
+
+```
+
+```{r prregunta_co_2-hint}
+# Función para importar
+read_csv("Carpeta/archivo.formato")
+```
+
+```{r prregunta_co_2-solution, echo=FALSE}
+library("readr")
+Alumnos=read_csv("data/Alumnos.csv")
+head(Alumnos)
+```
+
+```{r prregunta_co_2-check, echo=FALSE}
+grade_this_code()
+```
 
 ## Exportar (guardar) datos
 
