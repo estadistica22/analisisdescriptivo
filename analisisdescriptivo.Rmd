@@ -1,14 +1,17 @@
 ---
-title: "Manipulación de datos con R"
+title: "Estadística descriptiva básica con R"
 author: Departamento de matemáticas </br> Pontificia Unversidad Javeriana </br> Sede Cali
 output: 
   learnr::tutorial:
     css: css/learnr_metadocencia.css
     progressive: false
     language:
-    es: tutorial_es.json
-description: "Primera parte: Importar datos" 
+      es: tutorial_es.json
+description: "Conceptos básicos de probabilidad" 
 runtime: shiny_prerendered
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 <style>body {text-align: justify}</style>
 
@@ -60,13 +63,15 @@ head(Alumnos) #función que muestra las primeras filas de los datos importados
 ### Importar datos desde la interfáz
 La carga de datos se facilita mucho desde la interfáz de R studio, puede consultar los siguientes videos para aprender a cargar datos desde la interfáz:
 
+### RECORDAR PERMITIR LO VIDEO - 
+
 - Para el formato .csv, diríjase a: File /Import Dataset/From text (base).
 
 ```{r eval=FALSE, include=FALSE}
 embed_youtube("g8p_Rn8C6oU")
 ```
 
-
+### RECORDAR PERMITIR LO VIDEO - 
 - Para el formato .xlsx, diríjase a: File/ Import Dataset/ From Excel.
 
 ```{r eval=FALSE, include=FALSE}
@@ -170,8 +175,114 @@ grade_this_code()
 ```
 
 ## Exportar (guardar) datos
-
 ### Introducción
 
+Como se vio en el anterior apartado, R permite importar datos de diferentes  fuentes. En este apartado se trabajará el caso contrario, es decir, la exportación de datos (guardar datos que sólo están en R a excel u otro formato).
+
+La función mayormente usada para exportar datos de R, es  *write.table()*; dicha función puede exportar datos en formatos .txt, .xlsx, .csv y otros.  Los argumentos principales de la función son:
+
+```{r eval=FALSE, include=TRUE}
+write.table(x = Datos, #Debe ser una matrix o un dataframe de R
+
+file = "Datos.formato", #Nombre y formato en que se quiere guardar
+
+row.names = FALSE,  #Controla si se quiere guardar con el nombre de filas establecidos en R
+
+col.names = TRUE) #Controla si se quiere guardar con el nombre de columnas establecidos en R
+```
+
+Por ejemplo, si se quisiera guardar los datos iris (datos que trae por defecto R cargados) en formato xlsx, se usaría:
+
+```{r eval=FALSE, include=TRUE}
+iris # datos de 150 flores y diferentes medidas (base de datos de R)
+write.table(x = iris, file = "iris.xslx",row.names = FALSE, col.names = TRUE)
+```
+
+Si por otro lado, se quiere guardar en un formato de texto, ya sea .txt o .csv, se debe incluir el argumento **sep = ""**. Dentro de las comillas se debe indicar cómo deberán ir separadas las variables. Por ejemplo:
+
+```{r eval=FALSE, include=TRUE}
+
+write.table(x = iris, file = "iris.txt",row.names = FALSE, col.names = TRUE, sep = ",")
+```
+
+Ahora solo restaría busrcar el archivo en el equipo y este ya estaŕa cuerdado con el nombre y formato indicado. 
 
 ## Ejercicios: Exportación de datos
+
+**Con base en el apartado anterior, responda:**
+
+### Ejercicios: Selección múltiple
+
+```{r quiz2, echo=FALSE}
+quiz(
+  question("¿Cuál es la función más usada para exportar datos de R a formatos .xlsx?",
+    answer("write.table_xlsx()"),
+    answer("write.table()",correct = TRUE),
+    answer("write.table.xlsx()"),
+    answer("read.table_xlsx()")
+  ),
+  question("¿Cuál es la función más usada para exportar datos de R a formatos .csv o .txt",
+    answer("write.table.csv_txt()"),
+    answer("write.table.txt_csv()"),
+    answer("write.table.xlsx()"),
+    answer("write.table()",correct = TRUE)
+  
+))
+```
+
+### Ejercicios con código (1)
+
+**1.** Muestre el encabezado de los datos iri3 (Los tiene R por defecto), posteriomente exportelos como Datos en formato .txt separados por ";". 
+
+```{r prregunta_co_3, exercise=TRUE}
+
+```
+
+```{r prregunta_co_3-hint}
+# Función para exportar
+write.table(x = Datos_a_exportar, file = "Nombre.formato", sep = "separador asignado")
+
+```
+
+```{r prregunta_co_3-solution, echo=FALSE}
+write.table(x = iris3, file = "Datos.txt", sep = ";")
+```
+
+```{r prregunta_co_3-check, echo=FALSE}
+grade_this_code()
+```
+
+### Ejercicios con código (2)
+
+**2.** Muestre el encabezado de los datos iris (Los tiene R por defecto), posteriomente exportelos como Datos_iris en formato .xlsx separados por ";". 
+
+```{r prregunta_co_4, exercise=TRUE}
+
+```
+
+```{r prregunta_co_4-hint}
+# Función para exportar
+write.table(x = Datos_a_exportar, file = "Nombre.formato")
+
+```
+
+```{r prregunta_co_4-solution, echo=FALSE}
+head(iris)
+write.table(x = iris, file = "Datos_iris.xlsx")
+```
+
+```{r prregunta_co_4-check, echo=FALSE}
+grade_this_code()
+```
+
+## Manipulación de datos con R
+
+### Instroducción
+
+### Indexar Datos
+
+### Unir datos
+
+### Depurar/Limpiar Datos
+
+
