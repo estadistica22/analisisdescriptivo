@@ -148,7 +148,7 @@ head(Empresas)
 ```
 
 ```{r prregunta_co_1-check, echo=FALSE}
-grade_this_code()
+grade_this_code(correct = "¡Muy bien, respuesta correcta!",incorrect="Respuesta incorrecta, por favor revise de nuevo o recurra a la pista dada")
 ```
 
 ### Ejercicios con código (2)
@@ -171,7 +171,7 @@ head(Alumnos)
 ```
 
 ```{r prregunta_co_2-check, echo=FALSE}
-grade_this_code()
+grade_this_code(correct = "¡Muy bien, respuesta correcta!",incorrect="Respuesta incorrecta, por favor revise de nuevo o recurra a la pista dada")
 ```
 
 ## Exportar (guardar) datos
@@ -249,7 +249,7 @@ write.table(x = iris3, file = "Datos.txt", sep = ";")
 ```
 
 ```{r prregunta_co_3-check, echo=FALSE}
-grade_this_code()
+grade_this_code(correct = "¡Muy bien, respuesta correcta!",incorrect="Respuesta incorrecta, por favor revise de nuevo o recurra a la pista dada")
 ```
 
 ### Ejercicios con código (2)
@@ -272,12 +272,214 @@ write.table(x = iris, file = "Datos_iris.xlsx")
 ```
 
 ```{r prregunta_co_4-check, echo=FALSE}
-grade_this_code()
+grade_this_code(correct = "¡Muy bien, respuesta correcta!",incorrect="Respuesta incorrecta, por favor revise de nuevo o recurra a la pista dada")
+```
+
+## Introducción a la  manipulación de datos con R
+
+### Introducción
+
+En las dos secciones anteriores se habló de la importación y/o exportación de datos utilizando R; la siguiente sección pondrá en marcha la utilización de dichos datos cargados (a fin de cuentas los datos se importan para manipularlos con R). Sin embargo, antes de ver la manipulación de datos en R, es menester dar una breve introducción a los tipos de datos y  operaciones que maneja el lenguaje.
+
+### Tipos de estructuras en R
+
+**Vectores:** 
+
+Un vector no es más que un arreglo (colocación ordenada de algo) unidimensional de valores, caracteres (texto) o cadenas. En R los vectores siempre deben definirse con la letra c seguida de los elementos que componen el vector separados por comas y entre paréntesis; **Los elementos deben ser del mismo tipo**. A saber:
+
+```{r}
+x=c(1,2,3,4,5)  # Se define un vector de números del 1 al 5 asignado con la letra x
+x # Se llama la variable anteriormente definida para mostrar el vector
+```
+
+O, por ejemplo, un vector de nombres (texto, siempre entre comillas). 
+
+```{r}
+y=c("Juan","Esteban","Rodrigo","Pedro")  
+y 
+```
+
+**Matrices**
+
+Una matriz es la generalización de un vector pero para dos dimensiones. Es básicamente un arreglo bidimensional de valores. En R se define con la función *matrix(x=valores,nrow_=número filas,ncol=número_columnas)*. Por ejemplo:
+
+
+```{r}
+x=1:8 #valores del 1 al 8. Los dos puntos le indican a R que se genere una secuencia desde el número 1 al 8.
+m=matrix(x,nrow=2, ncol=4)   #se define una matriz de dos filas y 4 columnas
+m # se muestra la matriz
+```
+
+**Arrays**
+
+Los Arrays son arreglos multidimensionales. DE forma más simple, es un conjunto de listas, donde cada elemento puede contener matrices. La función para hacer uso de dicho objeto es *array (x=c(valores),dim=c(dimensiones))*. En el siguiente ejemplo se representa un arreglo de 3 matrices 3x3 que conformarian en 3D un cubo de datos
+
+
+
+```{r}
+x=1:9 # S definen 3 vectores con números del 1 al 27 en total
+y=10:18
+z=19:27
+Array=array(c(x,y,z),dim=c(3,3,3)) # se define el array de los 3 vectores y, las 3 dimensiones.
+Array
+```
+
+
+**Listas**
+
+A diferencia de un vector, una lista es una colección de elementos que pueden ser de diferente tipo. Los componentes de una lista son típicamente pares clave-valor. La función para este caso es *list(elemento,elemento2...)* , por ejemplo:
+
+```{r}
+Lista=list(20,"Hola",50,10) # Se crea la lista, 
+Lista
+```
+
+**Extrarer**
+
+También es posible selecionar o referenciar valores de una lista, vector o matriz en función de sus posiciones. Se usan los corchetes después del nombre asignado al objeto. Por ejemplo:
+
+```{r}
+x=(1:100) # vector desde 1 a 100 nombrado como x
+x[59] # se extrae la posición 59
+
+#---------------------------------------------------------------------------------------------------------------------------------------
+
+m=matrix(1:8,nrow=2, ncol=4)   #se define una matriz, para extrarer datos se sigue la siguiente lógica: nombre_matriz[filas, columnas] 
+m[1,2] # se seleciona elemento de la fila 1 y columna 2
+m[,2] # se seleciona toda la segunda columna
+
+```
+
+**Data frame**
+
+La estructura de datos tipo *data.frame* define a aquellas estructuras de dos dimensiones pero tratados explicitamente como bases de datos. La forma de referencias filas, columnas o valores es igual a la matriz.
+
+```{r}
+iris[2,]  # extrarer la segunda  fila de la base de datos iris
+```
+
+**Operadores**
+
+La tabla a continuación resumen los operados de R
+
+|     |  **Aritméticos** |   |  **Comparativos** |    |   |  **Lógicos**  |        |
+|:---:|:----------------:|:-:|:-----------------:|:--:|:-:|:-------------:|:------:|
+|  +  |      adición     |   |     menor que     |  < |   |  NO (Lógico)  |   !x   |
+|  -  |   substracción   |   |     mayor que     |  > |   |   Y (Lógico)  |  x & y |
+|  *  |  multiplicación  |   | menor o igual que | <= |   | O (exclusivo) | x or y |
+| %/% | división enteros |   | mayor o igual que | >= |   |               |        |
+|  *  |     división     |   |       igual       | >= |   |               |        |
+|  ^  |     potencia     |   |    diferente de   | >= |   |               |        |
+|  %% |      módulo      |   |                   |    |   |               |        |
+
+
+## Ejercicios: Introducción a la  manipulación de datos con R
+
+**1.**  Defina un vector de números desde 50 a 100 llamado como "Numeros". Adicionalmente, selecione las posiciones 20,40 y 50 en una misma línea.
+
+```{r prregunta_co_5, exercise=TRUE}
+
+```
+
+```{r prregunta_co_5-hint}
+#Para referenciar varias posiciones, utilice un vector. Por ejemplo:
+x[c(posición1,posición2,...)]
+```
+
+```{r prregunta_co_5-solution, echo=FALSE}
+Numeros=c(50:100)
+Numeros[,c(20,40,50)]
+```
+
+```{r prregunta_co_5-check, echo=FALSE}
+grade_this_code(correct = "¡Muy bien, respuesta correcta!",incorrect="Respuesta incorrecta, por favor revise de nuevo o recurra a la pista dada")
+```
+
+
+**2.**  Defina una matriz (llamada "m") de número desde el 1 al 9. La matriz debe contener 3 filas y 3 columnas. Además, muestre la posición (1,2) de la matriz.
+
+```{r prregunta_co_6, exercise=TRUE}
+
+```
+
+```{r prregunta_co_6-hint}
+m=matrix(1:9,nrow=3,ncol=3)
+```
+
+```{r prregunta_co_6-solution, echo=FALSE}
+m=matrix(1:9,nrow=3,ncol=3)
+m[1,2]
+```
+
+```{r prregunta_co_6-check, echo=FALSE}
+grade_this_code(correct = "¡Muy bien, respuesta correcta!",incorrect="Respuesta incorrecta, por favor revise de nuevo o recurra a la pista dada")
+```
+
+
+**3.**  Defina una lista, llamada "lista" con 5 elementos:1,1,2,juan,cesar. Posteriormente, selecione las posiciones 1 y 5.
+
+```{r prregunta_co_7, exercise=TRUE}
+
+```
+
+```{r prregunta_co_7-hint}
+list() #función para crear listas. Recuerde que los elementos van separados por coma y el texto debe ir en comillas.
+```
+
+```{r prregunta_co_7-solution, echo=FALSE}
+lista=list(1,1,2,"juan","cesar")
+lista[c(1,5)]
+```
+
+```{r prregunta_co_7-check, echo=FALSE}
+grade_this_code(correct = "¡Muy bien, respuesta correcta!",incorrect="Respuesta incorrecta, por favor revise de nuevo o recurra a la pista dada")
+```
+
+**4.**  Muestre el encabezado de la base de datos iris. Posteriormente selecione las filas desde 100 a 150 de dicha base de datos.
+
+```{r prregunta_co_8, exercise=TRUE}
+
+```
+
+```{r prregunta_co_8-hint}
+head() # Muestra el encabezado
+
+# [filas,columna]  lógica de selección de un data.frame
+```
+
+```{r prregunta_co_8-solution, echo=FALSE}
+head(iris)
+iris[c(100:150),]
+```
+
+```{r prregunta_co_8-check, echo=FALSE}
+grade_this_code(correct = "¡Muy bien, respuesta correcta!",incorrect="Respuesta incorrecta, por favor revise de nuevo o recurra a la pista dada")
+```
+
+
+**5.**  uponga que en su proyecto tiene una base de datos llamada "Alumnos" (formato csv) y dicha base está en una carpeta llamada "data"; escriba el código necesario para importar la base de datos. Posteriormente, selecione las primeras 10 filas de la base de datos.
+
+```{r prregunta_co_9, exercise=TRUE}
+
+```
+
+```{r prregunta_co_9-hint}
+#Recuerde llamar la librería para importar datos en formato .csv (readr)
+# Recuerde usar la función para importar datos en formato .csv (read_csv)
+# [filas,columna]  lógica de selección de un data.frame
+```
+
+```{r prregunta_co_9-solution, echo=FALSE}
+library("readr")
+Alumnos=read_csv("data/Alumnos.csv")
+Alumnos[c(1:10),]
+```
+
+```{r prregunta_co_9-check, echo=FALSE}
+grade_this_code(correct = "¡Muy bien, respuesta correcta!",incorrect="Respuesta incorrecta, por favor revise de nuevo o recurra a la pista dada")
 ```
 
 ## Manipulación de datos con R
-
-### Instroducción
 
 ### Indexar Datos
 
