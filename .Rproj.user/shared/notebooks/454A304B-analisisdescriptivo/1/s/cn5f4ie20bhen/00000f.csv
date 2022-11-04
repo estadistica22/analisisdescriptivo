@@ -1,0 +1,5 @@
+"0","# Paquetes necesarios"
+"0","library(""learnr"")"
+"0","library(""vembedr"")"
+"0","library(""gradethis"")"
+"0","knitr::opts_chunk$set(echi = FALSE)"

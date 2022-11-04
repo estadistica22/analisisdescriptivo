@@ -1,0 +1,66 @@
+# install.packages("devtools")
+devtools::install_github("estadistica22/probabilidad")
+library("estadistica22/probabilidad")
+library(learnr)
+knitr::include_graphics("https://mathworld.wolfram.com/images/gifs/rabbduck.jpg")
+readxl::read:read_excel("Datos/Alumnos.xlsx")
+library("learnr")
+library("readxl")
+library("learnr")
+library("readxl")
+library("learnr")
+install.packages("readxl")
+library("readxl") # Recuerde siempre llamar antes la librería
+readxl::read:read_excel("Datos/Alumnos.xlsx")
+library("readxl") # Recuerde siempre llamar antes la librería
+readxl::read_excel("Datos/Alumnos.xlsx")
+library("readxl") # Recuerde siempre llamar antes la librería
+readxl::read_excel("Datos\Alumnos.xlsx")
+library("readxl") # Recuerde siempre llamar antes la librería
+readxl::read_excel("Datos/Alumnos.xlsx")
+library("readxl") # Recuerde siempre llamar antes la librería
+readxl::read_excel("Datos/Alumnos.xlsx")
+library("readxl") # Recuerde siempre llamar antes la librería
+Alumnos=readxl::read_excel("Datos/Alumnos.xlsx")
+head(Alumnos)
+library("readxl") # Recuerde siempre llamar antes la librería
+Alumnos=readxl::read_excel("Datos/Alumnos.xlsx")
+head(Alumnos)
+library("readxl") # Recuerde siempre llamar antes la librería
+Alumnos=readxl::read_excel("Datos/Alumnos.xlsx")
+library("readxl") # Recuerde siempre llamar antes la librería
+Alumnos=readxl::read_excel("Datos/Alumnos.xlsx")
+head(Alumnos)
+embed_youtube("g8p_Rn8C6oU")
+install.packages(rmdformats)
+install.packages("rmdformats")
+library(rmdformats)
+library("readxl")
+Alumnos=readxl::read_excel("Datos/Empresas.xlsx")
+library("readxl")
+Alumnos=readxl::read_excel("Empresas.xlsx")
+# Paquetes necesarios
+library("learnr")
+library("vembedr")
+library("gradethis")
+# Paquetes necesarios
+library("learnr")
+library("vembedr")
+library("gradethis")
+knitr::opts_chunk$set(echi = FALSE)
+library("readxl") # Recuerde siempre llamar antes la librería
+Empresas=readxl::read_excel("Datos/Empresas.xlsx")
+library("readxl") # Recuerde siempre llamar antes la librería
+Empresas=read_excel("Datos/Empresas.xlsx")
+Empresas
+install_github("estadistica22/probabilidad", force = TRUE, build = TRUE)
+library(devtools)
+install_github("estadistica22/probabilidad", force = TRUE, build = TRUE)
+learnr::run_tutorial(name = "probabilidad", package = "paquete2")
+list.files()
+list.files(path="./Datos")
+list.files(path="./Datos")
+list.files()
+list.files()
+install.packages("remotes")
+libary(remotes)
